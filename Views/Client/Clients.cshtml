@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "Client";
+}
+
+@model MercadoEsquina.Models.Client
+@{
+    ViewData["Title"] = "Listagem de Clientes";
+}
+
+@using (Html.BeginForm())
+{
+    <center>
+        <button class="btn btn-primary">Cadastrar</button>
+        <h2>Clientes Cadastrados</h2>
+    </center>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Data de Nascimento</th>
+                <th>#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int cont = 0; }
+            @foreach (var clientes in @Model.Clients)
+            {
+                <tr>
+                    <th scope="row">@(++cont)</th>
+                    <td>@clientes.id</td>
+                    <td>@clientes.name</td>
+                    <td>@clientes.cpf</td>
+                    <td>@clientes.birthDate</td>
+                    <td><button class="btn btn-primary">Editar</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                }
