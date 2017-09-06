@@ -79,4 +79,5 @@ C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEs
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.dll
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.pdb
-C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.csprojResolveAssemblyReference.cache
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.MercadoEsquina.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.csproj.GenerateResource.Cache
