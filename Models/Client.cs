@@ -8,8 +8,6 @@ namespace MercadoEsquina.Models
 {
     public class Client
     {
-        //BD TEMPORÁRIO
-        public List<Client> Clients { get; set; }
         public int id { get; set; }
         public string name { get; set; }
         public string cpf { get; set; }
@@ -17,9 +15,8 @@ namespace MercadoEsquina.Models
 
         public Client()
         {
-            Clients = new List<Client>();
         }
-        public Client(int id, string name, string cpf, DateTime birthDate) : base()
+        public Client(int id, string name, string cpf, DateTime birthDate)
         {
             this.id = id;
             this.name = name;
