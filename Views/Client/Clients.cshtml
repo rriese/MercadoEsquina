@@ -3,7 +3,7 @@
     ViewBag.Title = "Client";
 }
 
-@model MercadoEsquina.Models.Client
+@model IEnumerable<MercadoEsquina.Models.Client>
 @{
     ViewData["Title"] = "Listagem de Clientes";
 }
@@ -27,7 +27,7 @@
         </thead>
         <tbody>
             @{ int cont = 0; }
-            @foreach (var clientes in @Model.Clients)
+            @foreach (var clientes in Model)
             {
                 <tr>
                     <th scope="row">@(++cont)</th>
@@ -35,8 +35,11 @@
                     <td>@clientes.name</td>
                     <td>@clientes.cpf</td>
                     <td>@clientes.birthDate</td>
-                    <td style="text-align:center"><button class="btn btn-primary">Editar</button>
-                        <button class="btn btn-primary">Remover</button></td>
+                    
+                    <td style="text-align:center">
+                        <button class="btn btn-primary" formaction="Edit/@clientes.id">Editar</button>
+                        <button class="btn btn-primary">Remover</button>
+                    </td>
                 </tr>
             }
         </tbody>

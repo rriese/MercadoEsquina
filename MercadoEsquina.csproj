@@ -202,9 +202,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201709130026050_InitialMigration.cs" />
-    <Compile Include="Migrations\201709130026050_InitialMigration.Designer.cs">
-      <DependentUpon>201709130026050_InitialMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201709192217002_InitialModel.cs" />
+    <Compile Include="Migrations\201709192217002_InitialModel.Designer.cs">
+      <DependentUpon>201709192217002_InitialModel.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -277,6 +277,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Client\Clients.cshtml" />
     <Content Include="Views\Client\Register.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -293,8 +294,8 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201709130026050_InitialMigration.resx">
-      <DependentUpon>201709130026050_InitialMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201709192217002_InitialModel.resx">
+      <DependentUpon>201709192217002_InitialModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
