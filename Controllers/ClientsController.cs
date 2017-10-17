@@ -22,24 +22,32 @@ namespace MercadoEsquina.Controllers
         [HttpPost]
         public ActionResult Save(Client cliente)
         {
-            if (cliente.id == 0)
+            ModelState.Remove("Id");
+            if (ModelState.IsValid)
             {
-                _context.Clients.Add(cliente);
+                if (cliente.Id == 0)
+                {
+                    _context.Clients.Add(cliente);
+                }
+                else
+                {
+                    var clientsInDb = _context.Clients.Single(c => c.Id == cliente.Id);
+
+                    clientsInDb.Name = cliente.Name;
+                    clientsInDb.BirthDate = cliente.BirthDate;
+                    clientsInDb.Cpf = cliente.Cpf;
+                }
+                _context.SaveChanges();
+                return RedirectToAction("Index");
             } else
             {
-                var clientsInDb = _context.Clients.Single(c => c.id == cliente.id);
-
-                clientsInDb.name = cliente.name;
-                clientsInDb.birthDate = cliente.birthDate;
-                clientsInDb.cpf = cliente.cpf;
+                return View("Edit", cliente);
             }
-            _context.SaveChanges();
-            return RedirectToAction("Index");
         }
 
         public ActionResult Remove(int id)
         {
-            var client = _context.Clients.Single(m => m.id == id);
+            var client = _context.Clients.Single(m => m.Id == id);
 
             if (client != null) _context.Clients.Remove(client);
 
@@ -52,7 +60,7 @@ namespace MercadoEsquina.Controllers
         {
             foreach (var client in _context.Clients.ToList())
             {
-                if (client.id == id)
+                if (client.Id == id)
                 {
                     return View(client);
                 }

@@ -83,3 +83,4 @@ C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEs
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.InitialModel.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.csproj.GenerateResource.Cache
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.InsertIntoCliente.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateAttributes.resources

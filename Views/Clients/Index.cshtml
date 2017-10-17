@@ -31,15 +31,15 @@
             {
                 <tr>
                     <th scope="row">@(++cont)</th>
-                    <td>@clientes.id</td>
-                    <td>@clientes.name</td>
-                    <td>@clientes.cpf</td>
-                    <td>@clientes.birthDate</td>
+                    <td>@clientes.Id</td>
+                    <td>@clientes.Name</td>
+                    <td>@clientes.Cpf</td>
+                    <td>@clientes.BirthDate</td>
                     
                     <td style="text-align:center">
 
-                        @Html.ActionLink("EDITAR", "Edit", new { clientes.id }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("REMOVER", "Remove", new { clientes.id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("EDITAR", "Edit", new { clientes.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("REMOVER", "Remove", new { clientes.Id }, new { @class = "btn btn-primary" })
                     </td>
                 </tr>
             }

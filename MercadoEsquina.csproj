@@ -210,6 +210,10 @@
     <Compile Include="Migrations\201709200010280_InsertIntoCliente.Designer.cs">
       <DependentUpon>201709200010280_InsertIntoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710172337393_UpdateAttributes.cs" />
+    <Compile Include="Migrations\201710172337393_UpdateAttributes.Designer.cs">
+      <DependentUpon>201710172337393_UpdateAttributes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -303,6 +307,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709200010280_InsertIntoCliente.resx">
       <DependentUpon>201709200010280_InsertIntoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710172337393_UpdateAttributes.resx">
+      <DependentUpon>201710172337393_UpdateAttributes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
