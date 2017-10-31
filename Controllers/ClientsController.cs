@@ -20,9 +20,9 @@ namespace MercadoEsquina.Controllers
             return View(client);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Client cliente)
         {
-            ModelState.Remove("Id");
             if (ModelState.IsValid)
             {
                 if (cliente.Id == 0)
