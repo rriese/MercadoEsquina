@@ -7,12 +7,12 @@
 {
     @Scripts.Render("~/bundles/jqueryval")
     <script type="text/javascript">
-        $(function () {
-            $.validator.methods.date = function (value, element) {
-                Globalize.culture("pt-BR");
-                return this.optional(element) || Globalize.parseDate(value) !== null;
-            }
-        })
+       $(function () {
+           $.validator.methods.date = function (value, element) {
+               Globalize.culture("pt-BR")                                                                                                                                                                m         ");
+               return this.optional(element) || Globalize.parseDate(value) !== null;
+           }
+       });
     </script>
 }
 
@@ -20,7 +20,6 @@
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.Id)
-    @Html.ValidationSummary(true, "Johny Cage Viadin")
 <div class="container">
     <h2>Você está na pagina "Editar Cliente"</h2>
     <div class="col-md-12">

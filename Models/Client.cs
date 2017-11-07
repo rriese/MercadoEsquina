@@ -15,7 +15,7 @@ namespace MercadoEsquina.Models
         [Required]
         public string Cpf { get; set; }
         [Required]
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public Client()
         {

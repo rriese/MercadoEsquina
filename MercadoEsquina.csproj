@@ -197,6 +197,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ClientsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -214,9 +215,22 @@
     <Compile Include="Migrations\201710172337393_UpdateAttributes.Designer.cs">
       <DependentUpon>201710172337393_UpdateAttributes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711072204519_UpdateDateTime.cs" />
+    <Compile Include="Migrations\201711072204519_UpdateDateTime.Designer.cs">
+      <DependentUpon>201711072204519_UpdateDateTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711072241002_AddedEmployee.cs" />
+    <Compile Include="Migrations\201711072241002_AddedEmployee.Designer.cs">
+      <DependentUpon>201711072241002_AddedEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711072255170_UpdateEmployee.cs" />
+    <Compile Include="Migrations\201711072255170_UpdateEmployee.Designer.cs">
+      <DependentUpon>201711072255170_UpdateEmployee.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -300,6 +314,8 @@
     <Content Include="Views\Clients\Index.cshtml" />
     <Content Include="Views\Clients\Register.cshtml" />
     <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -324,6 +340,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710172337393_UpdateAttributes.resx">
       <DependentUpon>201710172337393_UpdateAttributes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711072204519_UpdateDateTime.resx">
+      <DependentUpon>201711072204519_UpdateDateTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711072241002_AddedEmployee.resx">
+      <DependentUpon>201711072241002_AddedEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711072255170_UpdateEmployee.resx">
+      <DependentUpon>201711072255170_UpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

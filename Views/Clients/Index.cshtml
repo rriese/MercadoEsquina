@@ -34,10 +34,9 @@
                     <td>@clientes.Id</td>
                     <td>@clientes.Name</td>
                     <td>@clientes.Cpf</td>
-                    <td>@clientes.BirthDate</td>
-                    
+                    <td>@String.Format("{0: dd/MM/yyyy }", clientes.BirthDate)</td>
+                                        
                     <td style="text-align:center">
-
                         @Html.ActionLink("EDITAR", "Edit", new { clientes.Id }, new { @class = "btn btn-primary" })
                         @Html.ActionLink("REMOVER", "Remove", new { clientes.Id }, new { @class = "btn btn-primary" })
                     </td>

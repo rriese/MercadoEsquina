@@ -23,6 +23,8 @@ namespace MercadoEsquina.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Client cliente)
         {
+            //ModelState.Remove("Id");
+            Console.WriteLine(ModelState.Values);
             if (ModelState.IsValid)
             {
                 if (cliente.Id == 0)
@@ -70,7 +72,8 @@ namespace MercadoEsquina.Controllers
 
         public ActionResult New()
         {
-            return View("Edit");
+            var client = new Client();
+            return View("Edit", client);
         }
         protected override void Dispose(bool disposing)
         {

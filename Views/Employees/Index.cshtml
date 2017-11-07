@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Employee";
+}
+@model IEnumerable<MercadoEsquina.Models.Employee>
+@{
+    ViewData["Title"] = "Listagem de Funcionários";
+}
+@using (Html.BeginForm())
+{
+    <center>
+        @Html.ActionLink("Cadastrar", "New", null, new { @class = "btn btn-primary" })
+        <h2>Funcionários Cadastrados</h2>
+    </center>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cpf</th>
+                <th>Data de Nascimento</th>
+                <th>Função</th>
+                <th>Salário</th>
+                <th>Número de Telefone</th>
+                <th style="text-align: center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int cont = 0; }
+            @foreach (var employees in Model)
+            {
+                <tr>
+                    <th scope="row">@(++cont)</th>
+                    <td>@employees.Id</td>
+                    <td>@employees.Name</td>
+                    <td>@employees.Cpf</td>
+                    <td>@String.Format("{0: dd/MM/yyyy }", employees.BirthDate)</td>
+                    <td>@employees.Function</td>
+                    <td>@employees.Salary</td>
+                    <td>@employees.PhoneNumber</td>
+
+                    <td style="text-align:center">
+                        @Html.ActionLink("EDITAR", "Edit", new { employees.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("REMOVER", "Remove", new { employees.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                }

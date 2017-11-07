@@ -1,0 +1,59 @@
+﻿@model MercadoEsquina.Models.Employee
+@{
+    ViewData["Title"] = "Editar/Cadastrar Funcionário";
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+       $(function () {
+           $.validator.methods.date = function (value, element) {
+               Globalize.culture("pt-BR")                                                                                                                                                                m         ");
+               return this.optional(element) || Globalize.parseDate(value) !== null;
+           }
+       });
+    </script>
+}
+
+@using (Html.BeginForm("Save", "Employees"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+    <div class="container">
+        <h2>Você está na pagina "Editar/Cadastrar Funcionário"</h2>
+        <div class="col-md-12">
+            @Html.HiddenFor(m => m.Id)
+            <div class="form-group">
+                @Html.Label("Nome")
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Name)
+            </div>
+            <div class="form-group">
+                @Html.Label("Cpf")
+                @Html.TextBoxFor(m => m.Cpf, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Cpf)
+            </div>
+            <div class="form-group">
+                @Html.Label("Data de Nascimento")
+                @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.BirthDate)
+            </div>
+            <div class="form-group">
+                @Html.Label("Função")
+                @Html.TextBoxFor(m => m.Function, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Function)
+            </div>
+            <div class="form-group">
+                @Html.Label("Salário")
+                @Html.TextBoxFor(m => m.Salary, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.Salary)
+            </div>
+            <div class="form-group">
+                @Html.Label("Número de Telefone")
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.PhoneNumber)
+            </div>
+            <button type="submit" class="btn btn-default">Salvar</button>
+        </div>
+    </div>
+}
