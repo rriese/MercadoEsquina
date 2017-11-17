@@ -6,14 +6,6 @@
 @section scripts
 {
     @Scripts.Render("~/bundles/jqueryval")
-    <script type="text/javascript">
-       $(function () {
-           $.validator.methods.date = function (value, element) {
-               Globalize.culture("pt-BR")                                                                                                                                                                m         ");
-               return this.optional(element) || Globalize.parseDate(value) !== null;
-           }
-       });
-    </script>
 }
 
 @using (Html.BeginForm("Save", "Clients"))

@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using MercadoEsquina.App_Start;
+using System.Web;
 using System.Web.Optimization;
 
 namespace MercadoEsquina
@@ -23,9 +24,17 @@ namespace MercadoEsquina
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap2.css",
                       "~/Content/site.css"));
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+            /*bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                       "~/Scripts/jquery.validate*",
-                      "~/Scripts/globalize.js"));
+                      "~/Scripts/globalize.js"));*/
+            var bundle = new ScriptBundle("~/bundles/jqueryval").Include(
+                      "~/Scripts/jquery.validate.js",
+                      "~/Scripts/jquery.validate.unobtrusive.js",
+                      "~/Scripts/modelo-pt.js",
+                      "~/Scripts/helper.js"
+            );
+            bundle.Orderer = new AsIsBundleOrderer();
+            bundles.Add(bundle);
         }
     }
 }
