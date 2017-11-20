@@ -14,6 +14,10 @@ namespace MercadoEsquina.Controllers
             Database.SetInitializer<ApplicationDbContext>(null);
             _context = new ApplicationDbContext();
         }
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
         public ActionResult Index()
         {
             var client = _context.Clients.ToList();
@@ -23,8 +27,6 @@ namespace MercadoEsquina.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Save(Client cliente)
         {
-            //ModelState.Remove("Id");
-            Console.WriteLine(ModelState.Values);
             if (ModelState.IsValid)
             {
                 if (cliente.Id == 0)
@@ -38,12 +40,13 @@ namespace MercadoEsquina.Controllers
                     clientsInDb.Name = cliente.Name;
                     clientsInDb.BirthDate = cliente.BirthDate;
                     clientsInDb.Cpf = cliente.Cpf;
+                    clientsInDb.PhoneNumber = cliente.PhoneNumber;
                 }
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             } else
             {
-                return View("Edit", cliente);
+                return View("Form", cliente);
             }
         }
 
@@ -60,24 +63,20 @@ namespace MercadoEsquina.Controllers
 
         public ActionResult Edit(int id)
         {
-            foreach (var client in _context.Clients.ToList())
+            var client = _context.Clients.SingleOrDefault(c => c.Id == id);
+
+            if (client != null)
             {
-                if (client.Id == id)
-                {
-                    return View(client);
-                }
+                return View("Form", client);
             }
-            return HttpNotFound();
+            else {
+                return HttpNotFound();
+            }
         }
 
         public ActionResult New()
         {
-            var client = new Client();
-            return View("Edit", client);
-        }
-        protected override void Dispose(bool disposing)
-        {
-            _context.Dispose();
+            return View("Form", new Client());
         }
     }
 }

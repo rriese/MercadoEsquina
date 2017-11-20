@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Product";
+}
+@model IEnumerable<MercadoEsquina.Models.Product>
+@{
+    ViewData["Title"] = "Listagem de Produtos";
+}
+@using (Html.BeginForm())
+{
+    <center>
+        @Html.ActionLink("Novo Produto", "New", null, new { @class = "btn btn-primary" })
+        <h2>Produtos Cadastrados</h2>
+    </center>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Id</th>
+                <th>Descrição</th>
+                <th>Valor</th>
+                <th>Quantidade</th>
+                <th style="text-align: center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int cont = 0; }
+            @foreach (var products in Model)
+            {
+                <tr>
+                    <th scope="row">@(++cont)</th>
+                    <td>@products.Id</td>
+                    <td>@products.Description</td>
+                    <td>@products.Value</td>
+                    <td>@products.Quantity</td>
+
+                    <td style="text-align:center">
+                        @Html.ActionLink("EDITAR", "Edit", new { products.Id }, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("REMOVER", "Remove", new { products.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                }

@@ -201,6 +201,8 @@
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -228,19 +230,40 @@
     <Compile Include="Migrations\201711072255170_UpdateEmployee.Designer.cs">
       <DependentUpon>201711072255170_UpdateEmployee.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711192114007_AddPhoneNumberToClient.cs" />
+    <Compile Include="Migrations\201711192114007_AddPhoneNumberToClient.Designer.cs">
+      <DependentUpon>201711192114007_AddPhoneNumberToClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711192248452_AddedProductModel.cs" />
+    <Compile Include="Migrations\201711192248452_AddedProductModel.Designer.cs">
+      <DependentUpon>201711192248452_AddedProductModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711192313550_AddedOrderModel.cs" />
+    <Compile Include="Migrations\201711192313550_AddedOrderModel.Designer.cs">
+      <DependentUpon>201711192313550_AddedOrderModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711192319526_AddedOrderItemModel.cs" />
+    <Compile Include="Migrations\201711192319526_AddedOrderItemModel.Designer.cs">
+      <DependentUpon>201711192319526_AddedOrderItemModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\OrderFormViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap2.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -315,10 +338,13 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Clients\Index.cshtml" />
-    <Content Include="Views\Clients\Register.cshtml" />
-    <Content Include="Views\Clients\Edit.cshtml" />
+    <Content Include="Views\Clients\Form.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Form.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Form.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
+    <Content Include="Views\Orders\Form.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -353,6 +379,18 @@
     <EmbeddedResource Include="Migrations\201711072255170_UpdateEmployee.resx">
       <DependentUpon>201711072255170_UpdateEmployee.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711192114007_AddPhoneNumberToClient.resx">
+      <DependentUpon>201711192114007_AddPhoneNumberToClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711192248452_AddedProductModel.resx">
+      <DependentUpon>201711192248452_AddedProductModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711192313550_AddedOrderModel.resx">
+      <DependentUpon>201711192313550_AddedOrderModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711192319526_AddedOrderItemModel.resx">
+      <DependentUpon>201711192319526_AddedOrderItemModel.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -382,13 +420,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

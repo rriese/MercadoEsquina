@@ -87,3 +87,24 @@ C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEs
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateDateTime.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedEmployee.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateEmployee.resources
+C:\Users\RIESE'S\Desktop\HABIBS\MercadoEsquina-master\obj\Debug\MercadoEsquina.dll
+C:\Users\RIESE'S\Desktop\HABIBS\MercadoEsquina-master\obj\Debug\MercadoEsquina.pdb
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.InitialModel.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.InsertIntoCliente.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.UpdateAttributes.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.UpdateDateTime.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.AddedEmployee.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.UpdateEmployee.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.AddPhoneNumberToClient.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.csproj.GenerateResource.Cache
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\bin\ApplicationInsights.config
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\bin\MercadoEsquina.dll.config
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\bin\MercadoEsquina.dll
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\bin\MercadoEsquina.pdb
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.dll
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.pdb
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.AddedProductModel.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.AddedOrderModel.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.AddedOrderItemModel.resources
+C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.csprojResolveAssemblyReference.cache

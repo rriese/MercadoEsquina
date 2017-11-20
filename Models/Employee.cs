@@ -10,16 +10,21 @@ namespace MercadoEsquina.Models
     {
         public int Id { get; set; }
         [Required]
+        [Display(Name = "Nome")]
         public string Name { get; set; }
         [Required]
         public string Cpf { get; set; }
         [Required]
+        [Display(Name = "Data de Nascimento")]
         public DateTime? BirthDate { get; set; }
         [Required]
+        [Display(Name = "Função")]
         public string Function { get; set; }
         [Required]
+        [Display(Name = "Salário")]
         public double Salary { get; set; }
         [Required]
+        [Display(Name = "Número de Telefone")]
         public string PhoneNumber { get; set; }
 
         public Employee()

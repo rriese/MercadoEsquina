@@ -1,0 +1,76 @@
+﻿@model MercadoEsquina.ViewModels.OrderFormViewModel
+@{
+    ViewBag.Title = "Formulário Pedido";
+}
+
+@using (Html.BeginForm("Save", "Orders"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Order.Id)
+
+    <center><h2>Pedido</h2></center>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Order.OrderDate)
+        @Html.TextBoxFor(m => m.Order.OrderDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Order.OrderDate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Order.Client)
+        @Html.DropDownListFor(m => m.Order.Client.Id,
+            new SelectList(Model.Clients, "Id", "Name"),
+            "Escolha", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Order.Client.Id)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Order.Employee)
+        @Html.DropDownListFor(m => m.Order.Employee.Id,
+            new SelectList(Model.Employees, "Id", "Name"),
+            "Escolha", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Order.Employee.Id)
+    </div>
+
+    <div id="itemPedidoTable">
+    <table class="table table-bordered table-hover" id="tabela">
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th style="text-align: center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="lineClone">
+                 <td>
+                    <div class="form-group">
+                        @Html.DropDownListFor(m => m.Order.Employee.Id,
+                        new SelectList(Model.Products, "Id", "Description"),
+                        "Escolha", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Order.Employee.Id)
+                    </div>
+                </td>
+                <td>@Html.TextBoxFor(m => m.Products, new { @class = "form-control" })</td>
+                <td><button type="button" class="btn btn-primary btnClone">Adicionar Linha</button></td>
+                <td style="text-align:center">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+        </div>
+    <br>
+    <div class="btnSubmit">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(".btnClone").click(function () {
+            $("#lineClone").clone().appendTo("#tabela");
+        });
+
+    </script>
+}

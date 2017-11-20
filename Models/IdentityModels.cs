@@ -22,6 +22,10 @@ namespace MercadoEsquina.Models
     {
         public DbSet<Client> Clients { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

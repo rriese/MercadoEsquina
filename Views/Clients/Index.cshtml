@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     <center>
-        @Html.ActionLink("Cadastrar", "New", null, new { @class = "btn btn-primary" })
+        @Html.ActionLink("Novo Cliente", "New", null, new { @class = "btn btn-primary" })
         <h2>Clientes Cadastrados</h2>
     </center>
     <table class="table table-bordered table-hover">
@@ -22,6 +22,7 @@
                 <th>Nome</th>
                 <th>Cpf</th>
                 <th>Data de Nascimento</th>
+                <th>Número de Telefone</th>
                 <th style="text-align: center">#</th>
             </tr>
         </thead>
@@ -35,6 +36,7 @@
                     <td>@clientes.Name</td>
                     <td>@clientes.Cpf</td>
                     <td>@String.Format("{0: dd/MM/yyyy }", clientes.BirthDate)</td>
+                    <td>@clientes.PhoneNumber</td>
                                         
                     <td style="text-align:center">
                         @Html.ActionLink("EDITAR", "Edit", new { clientes.Id }, new { @class = "btn btn-primary" })

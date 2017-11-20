@@ -23,10 +23,8 @@ namespace MercadoEsquina
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap2.css",
-                      "~/Content/site.css"));
-            /*bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                      "~/Scripts/jquery.validate*",
-                      "~/Scripts/globalize.js"));*/
+                      "~/Content/site.css",
+                      "~/Content/style.css"));
             var bundle = new ScriptBundle("~/bundles/jqueryval").Include(
                       "~/Scripts/jquery.validate.js",
                       "~/Scripts/jquery.validate.unobtrusive.js",

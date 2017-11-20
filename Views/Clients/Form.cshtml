@@ -1,0 +1,47 @@
+﻿@model MercadoEsquina.Models.Client
+@{
+    ViewBag.Title = "Formulário Cliente";
+}
+
+@using (Html.BeginForm("Save", "Clients"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+
+    if (Model.Id == 0)
+    {
+        <center><h2>Cadastro de Cliente</h2></center>
+    }
+    else
+    {
+        <center><h2>Edição de Cliente</h2></center>
+    }
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Cpf)
+        @Html.TextBoxFor(m => m.Cpf, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Cpf)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.BirthDate)
+        @Html.TextBoxFor(m => m.BirthDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.BirthDate)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.PhoneNumber)
+        @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.PhoneNumber)
+    </div>
+    <div class="btnSubmit">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}

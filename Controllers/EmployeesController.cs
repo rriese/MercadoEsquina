@@ -26,7 +26,7 @@ namespace MercadoEsquina.Controllers
         public ActionResult New()
         {
             var employee = new Employee();
-            return View("Edit", employee);
+            return View("Form", employee);
         }
 
         [HttpPost]
@@ -55,9 +55,22 @@ namespace MercadoEsquina.Controllers
             }
             else
             {
-                return View("Edit", funcionario);
+                return View("Form", funcionario);
             }
         }
+
+        public ActionResult Edit(int id)
+        {
+            foreach (var employee in _context.Employees.ToList())
+            {
+                if (employee.Id == id)
+                {
+                    return View("Form", employee);
+                }
+            }
+            return HttpNotFound();
+        }
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();

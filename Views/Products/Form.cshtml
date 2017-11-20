@@ -1,0 +1,42 @@
+﻿@model MercadoEsquina.Models.Product
+@{
+    ViewBag.Title = "Formulário Produto";
+}
+
+@using (Html.BeginForm("Save", "Products"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id)
+
+    if (Model.Id == 0)
+    {
+        <center><h2>Cadastro de Produto</h2></center>
+    }
+    else
+    {
+        <center><h2>Edição de Produto</h2></center>
+    }
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Description)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Value)
+        @Html.TextBoxFor(m => m.Value, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Value)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Quantity)
+        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Quantity)
+    </div>
+    <div class="btnSubmit">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
