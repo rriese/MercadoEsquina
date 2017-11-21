@@ -108,3 +108,10 @@ C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj
 C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.AddedOrderModel.resources
 C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.Migrations.AddedOrderItemModel.resources
 C:\Users\RIESE'S\Documents\Visual Studio 2015\Projects\MercadoEsquina-master\obj\Debug\MercadoEsquina.csprojResolveAssemblyReference.cache
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddPhoneNumberToClient.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedProductModel.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedOrderModel.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedOrderItemModel.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Teste.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddUsers.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.TesteUser.resources

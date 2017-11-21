@@ -8,7 +8,17 @@
     ViewData["Title"] = "Listagem de Pedidos";
 }
 
-@using (Html.BeginForm())
+@if (!Model.Any())
+{
+    <center>
+        <h1>Não temos nenhum pedido ainda.</h1>
+        @Html.ActionLink("Novo Pedido", "New", null, new { @class = "btn btn-primary" })
+    </center>
+}
+else
+{
+
+using (Html.BeginForm())
 {
     <center>
         @Html.ActionLink("Novo Pedido", "New", null, new { @class = "btn btn-primary" })
@@ -44,3 +54,4 @@
         </tbody>
     </table>
                 }
+}

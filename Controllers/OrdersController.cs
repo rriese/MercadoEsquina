@@ -33,10 +33,20 @@ namespace MercadoEsquina.Controllers
                 Clients = _context.Clients.ToList(),
                 Employees = _context.Employees.ToList(),
                 Products = _context.Products.ToList(),
+                Items = new List<OrderItem>(),
                 Order = new Order()
             };
 
             return View("Form", viewModel);
+        }
+        [HttpPost]
+        public ActionResult Save(Order order)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View();
         }
     }
 }

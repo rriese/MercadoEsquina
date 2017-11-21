@@ -11,6 +11,7 @@ namespace MercadoEsquina.ViewModels
         public IEnumerable<Client> Clients { get; set; }
         public IEnumerable<Employee> Employees { get; set; }
         public IEnumerable<Product> Products { get; set; }
+        public IList<OrderItem> Items { get; set; }
         public Order Order { get; set; }
     }
 }

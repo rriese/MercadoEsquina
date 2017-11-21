@@ -6,13 +6,24 @@
 @{
     ViewData["Title"] = "Listagem de Funcionários";
 }
-@using (Html.BeginForm())
+
+@if (!Model.Any())
 {
+    <center>
+        <h1>Não temos nenhum funcionário ainda.</h1>
+        @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
+    </center>
+}
+else
+{
+
+    using (Html.BeginForm())
+    {
     <center>
         @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
         <h2>Funcionários Cadastrados</h2>
     </center>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" id="employees">
         <thead>
             <tr>
                 <th>#</th>
@@ -42,10 +53,33 @@
 
                     <td style="text-align:center">
                         @Html.ActionLink("EDITAR", "Edit", new { employees.Id }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("REMOVER", "Remove", new { employees.Id }, new { @class = "btn btn-primary" })
+                        <button type="button" data-employee-id="@employees.Id" class="btn btn-primary" id="remove">Remover</button>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
+                }
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#employees").on("click", "#remove",
+                function () {
+                    var button = $(this);
+                    bootbox.confirm("Tem certeza que quer remover este funcionário?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/Employees/Remove/" + button.attr("data-employee-id"),
+                                    method: "GET",
+                                    success: function () {
+                                        button.parents("tr").remove();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
+}
                 }

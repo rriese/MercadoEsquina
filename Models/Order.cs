@@ -18,6 +18,7 @@ namespace MercadoEsquina.Models
         [Required]
         [Display(Name = "Funcionário")]
         public Employee Employee { get; set; }
+        public IList<OrderItem> Items { get; set; }
 
         public Order()
         {

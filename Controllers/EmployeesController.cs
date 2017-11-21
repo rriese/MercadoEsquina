@@ -71,6 +71,17 @@ namespace MercadoEsquina.Controllers
             return HttpNotFound();
         }
 
+        public ActionResult Remove(int id)
+        {
+            var employee = _context.Employees.Single(m => m.Id == id);
+
+            if (employee != null) _context.Employees.Remove(employee);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
