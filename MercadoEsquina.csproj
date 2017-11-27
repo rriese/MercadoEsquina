@@ -258,6 +258,10 @@
     <Compile Include="Migrations\201711212303546_TesteUser.Designer.cs">
       <DependentUpon>201711212303546_TesteUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711242246200_Fodase.cs" />
+    <Compile Include="Migrations\201711242246200_Fodase.Designer.cs">
+      <DependentUpon>201711242246200_Fodase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -412,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711212303546_TesteUser.resx">
       <DependentUpon>201711212303546_TesteUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711242246200_Fodase.resx">
+      <DependentUpon>201711242246200_Fodase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

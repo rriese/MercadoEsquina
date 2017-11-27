@@ -115,3 +115,4 @@ C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEs
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Teste.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddUsers.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.TesteUser.resources
+C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Fodase.resources
