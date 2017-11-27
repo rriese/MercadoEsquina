@@ -1,44 +1,48 @@
-﻿
-@{
-    ViewBag.Title = "Client";
-}
-
-@model IEnumerable<MercadoEsquina.Models.Client>
+﻿@model MercadoEsquina.ViewModels.ClientViewModel
 @{
     ViewData["Title"] = "Listagem de Clientes";
 }
 
-@if (!Model.Any())
+@if (!Model.Clients.Any())
 {
     <center>
         <h1>Não temos nenhum cliente ainda.</h1>
-        @Html.ActionLink("Novo Cliente", "New", null, new { @class = "btn btn-primary" })
+        @if (Model.HasPermission)
+        {
+            @Html.ActionLink("Novo Cliente", "New", null, new { @class = "btn btn-primary" })
+        }
     </center>
 }
 else
 {
-
-using (Html.BeginForm())
-{
+    using (Html.BeginForm())
+    {
     <center>
-        @Html.ActionLink("Novo Cliente", "New", null, new { @class = "btn btn-primary" })
+        @if (Model.HasPermission)
+        {
+            @Html.ActionLink("Novo Cliente", "New", null, new { @class = "btn btn-primary" })
+        }
         <h2>Clientes Cadastrados</h2>
     </center>
+    
     <table class="table table-bordered table-hover" id="clients">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Cpf</th>
-                <th>Data de Nascimento</th>
-                <th>Número de Telefone</th>
                 <th style="text-align: center">#</th>
+                <th style="text-align: center">Id</th>
+                <th style="text-align: center">Nome</th>
+                <th style="text-align: center">Cpf</th>
+                <th style="text-align: center">Data de Nascimento</th>
+                <th style="text-align: center">Número de Telefone</th>
+                @if (Model.HasPermission)
+                {
+                    <th style="text-align: center">#</th>
+                }
             </tr>
         </thead>
         <tbody>
             @{ int cont = 0; }
-            @foreach (var clientes in Model)
+            @foreach (var clientes in Model.Clients)
             {
                 <tr>
                     <th scope="row">@(++cont)</th>
@@ -48,10 +52,12 @@ using (Html.BeginForm())
                     <td>@String.Format("{0: dd/MM/yyyy }", clientes.BirthDate)</td>
                     <td>@clientes.PhoneNumber</td>
                                         
-                    <td style="text-align:center">
-                        <button type="button" data-customer-id="@clientes.Id" class="btn btn-primary" id="remove">Remover</button>
-                        @Html.ActionLink("EDITAR", "Edit", new { clientes.Id }, new { @class = "btn btn-primary" })
-                    </td>
+                    @if (Model.HasPermission) {
+                        <td style="text-align:center">
+                            <button type="button" data-customer-id="@clientes.Id" class="btn btn-primary" id="remove">Remover</button>
+                            @Html.ActionLink("EDITAR", "Edit", new { clientes.Id }, new { @class = "btn btn-primary" })
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

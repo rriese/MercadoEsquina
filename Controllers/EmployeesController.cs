@@ -1,9 +1,8 @@
 ﻿using MercadoEsquina.Models;
-using System;
-using System.Collections.Generic;
+using MercadoEsquina.ViewModels;
 using System.Data.Entity;
 using System.Linq;
-using System.Web;
+using System.Net;
 using System.Web.Mvc;
 
 namespace MercadoEsquina.Controllers
@@ -19,67 +18,99 @@ namespace MercadoEsquina.Controllers
         }
         public ActionResult Index()
         {
-            var employee = _context.Employees.ToList();
+            var employee = new EmployeeViewModel()
+            {
+                Employees = _context.Employees.ToList(),
+                HasPermission = User.IsInRole(Util.CanManageRole)
+            };
+
             return View(employee);
         }
 
         public ActionResult New()
         {
-            var employee = new Employee();
-            return View("Form", employee);
+            if (User.IsInRole(Util.CanManageRole))
+            {
+                var employee = new EmployeeViewModel() {
+
+                    Employee = new Employee()
+                };
+
+                return View("Form", employee);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Employee funcionario)
+        public ActionResult Save(EmployeeViewModel viewModel)
         {
+            Employee employee = viewModel.Employee;
+
             if (ModelState.IsValid)
             {
-                if (funcionario.Id == 0)
+                if (employee.Id == 0)
                 {
-                    _context.Employees.Add(funcionario);
+                    _context.Employees.Add(employee);
                 }
                 else
                 {
-                    var employeesInDb = _context.Employees.Single(c => c.Id == funcionario.Id);
+                    var employeesInDb = _context.Employees.Single(c => c.Id == employee.Id);
 
-                    employeesInDb.Name = funcionario.Name;
-                    employeesInDb.BirthDate = funcionario.BirthDate;
-                    employeesInDb.Cpf = funcionario.Cpf;
-                    employeesInDb.Function = funcionario.Function;
-                    employeesInDb.Salary = funcionario.Salary;
-                    employeesInDb.PhoneNumber = funcionario.PhoneNumber;
+                    employeesInDb.Name = employee.Name;
+                    employeesInDb.BirthDate = employee.BirthDate;
+                    employeesInDb.Cpf = employee.Cpf;
+                    employeesInDb.Function = employee.Function;
+                    employeesInDb.Salary = employee.Salary;
+                    employeesInDb.PhoneNumber = employee.PhoneNumber;
                 }
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View("Form", funcionario);
+                return View("Form", employee);
             }
         }
 
         public ActionResult Edit(int id)
         {
-            foreach (var employee in _context.Employees.ToList())
+            if (User.IsInRole(Util.CanManageRole))
             {
-                if (employee.Id == id)
+                var employee = new EmployeeViewModel()
+                {
+                    Employee = _context.Employees.SingleOrDefault(c => c.Id == id)
+                };
+                if (employee.Employee != null)
                 {
                     return View("Form", employee);
                 }
+
+                return HttpNotFound();
+            } else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
-            return HttpNotFound();
         }
 
         public ActionResult Remove(int id)
         {
-            var employee = _context.Employees.Single(m => m.Id == id);
+            if (User.IsInRole(Util.CanManageRole))
+            {
+                var employee = _context.Employees.Single(m => m.Id == id);
 
-            if (employee != null) _context.Employees.Remove(employee);
+                if (employee != null) _context.Employees.Remove(employee);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            } else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
 
         protected override void Dispose(bool disposing)

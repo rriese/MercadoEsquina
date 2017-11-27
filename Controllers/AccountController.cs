@@ -158,8 +158,8 @@ namespace MercadoEsquina.Controllers
                 {
                     /*var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
                     var roleManager = new RoleManager<IdentityRole>(roleStore);
-                    await roleManager.CreateAsync(new IdentityRole("CanManageCustomers"));
-                    await UserManager.AddToRoleAsync(user.Id, "CanManageCustomers");*/
+                    await roleManager.CreateAsync(new IdentityRole("CanManageSpecific"));
+                    await UserManager.AddToRoleAsync(user.Id, "CanManageSpecific");*/
 
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     

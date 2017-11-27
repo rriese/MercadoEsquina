@@ -1,7 +1,8 @@
 ﻿using MercadoEsquina.Models;
-using System;
+using MercadoEsquina.ViewModels;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 
 namespace MercadoEsquina.Controllers
@@ -20,63 +21,94 @@ namespace MercadoEsquina.Controllers
         }
         public ActionResult Index()
         {
-            var client = _context.Clients.ToList();
+            var client = new ClientViewModel()
+            {
+                Clients = _context.Clients.ToList(),
+                HasPermission = User.IsInRole(Util.CanManageRole)
+            };
             return View(client);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Client cliente)
+        public ActionResult Save(ClientViewModel viewModel)
         {
+            Client client = viewModel.Client;
+
             if (ModelState.IsValid)
             {
-                if (cliente.Id == 0)
+                if (client.Id == 0)
                 {
-                    _context.Clients.Add(cliente);
+                    _context.Clients.Add(client);
                 }
                 else
                 {
-                    var clientsInDb = _context.Clients.Single(c => c.Id == cliente.Id);
+                    var clientsInDb = _context.Clients.Single(c => c.Id == client.Id);
 
-                    clientsInDb.Name = cliente.Name;
-                    clientsInDb.BirthDate = cliente.BirthDate;
-                    clientsInDb.Cpf = cliente.Cpf;
-                    clientsInDb.PhoneNumber = cliente.PhoneNumber;
+                    clientsInDb.Name = client.Name;
+                    clientsInDb.BirthDate = client.BirthDate;
+                    clientsInDb.Cpf = client.Cpf;
+                    clientsInDb.PhoneNumber = client.PhoneNumber;
                 }
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             } else
             {
-                return View("Form", cliente);
+                return View("Form", client);
             }
         }
 
         public ActionResult Remove(int id)
         {
-            var client = _context.Clients.Single(m => m.Id == id);
+            if (User.IsInRole(Util.CanManageRole))
+            {
+                var client = _context.Clients.Single(m => m.Id == id);
 
-            if (client != null) _context.Clients.Remove(client);
+                if (client != null) _context.Clients.Remove(client);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            } else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
 
         public ActionResult Edit(int id)
         {
-            var client = _context.Clients.SingleOrDefault(c => c.Id == id);
-
-            if (client != null)
+            if (User.IsInRole(Util.CanManageRole))
             {
-                return View("Form", client);
-            }
-            else {
-                return HttpNotFound();
+                var client = new ClientViewModel()
+                {
+                    Client = _context.Clients.SingleOrDefault(c => c.Id == id)
+                };
+
+                if (client.Client != null)
+                {
+                    return View("Form", client);
+                }
+                else {
+                    return HttpNotFound();
+                }
+            } else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
         }
 
         public ActionResult New()
         {
-            return View("Form", new Client());
+            if (User.IsInRole(Util.CanManageRole))
+            {
+                var client = new ClientViewModel()
+                {
+                    Client = new Client()
+                };
+                return View("Form", client);
+            } else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
     }
 }

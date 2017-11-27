@@ -1,10 +1,8 @@
 ﻿using MercadoEsquina.Models;
 using MercadoEsquina.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace MercadoEsquina.Controllers
 {
@@ -22,31 +20,32 @@ namespace MercadoEsquina.Controllers
 
         public ActionResult Index()
         {
-            var orders = _context.Orders.ToList();
+            var orders = _context.Orders.Include(c => c.Client).ToList();
             return View(orders);
         }
 
         public ActionResult New()
         {
-            var viewModel = new OrderFormViewModel()
+            var viewModel = new OrderViewModel()
             {
                 Clients = _context.Clients.ToList(),
-                Employees = _context.Employees.ToList(),
-                Products = _context.Products.ToList(),
-                Items = new List<OrderItem>(),
                 Order = new Order()
             };
 
             return View("Form", viewModel);
         }
         [HttpPost]
-        public ActionResult Save(Order order)
+        [ValidateAntiForgeryToken]
+        public ActionResult Save(OrderViewModel viewModel)
         {
-            if (ModelState.IsValid)
-            {
+            Order order = viewModel.Order;
+            order.Client = _context.Clients.Single(c => c.Id == order.Client.Id);
 
-            }
-            return View();
+            _context.Orders.Add(order);
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -12,25 +12,20 @@ namespace MercadoEsquina.Models
         [Required]
         [Display(Name = "Data Venda")]
         public DateTime? OrderDate { get; set; }
-        [Required]
         [Display(Name = "Cliente")]
         public Client Client { get; set; }
-        [Required]
-        [Display(Name = "Funcionário")]
-        public Employee Employee { get; set; }
-        public IList<OrderItem> Items { get; set; }
-
+        public bool isFinalized { get; set; }
+     
         public Order()
         {
         }
 
-        public Order(int id, DateTime orderDate, Client client, Employee employee)
+        public Order(int id, DateTime orderDate, Client client, bool isFinalized)
         {
             this.Id = id;
             this.OrderDate = orderDate;
             this.Client = client;
-            this.Employee = employee;
+            this.isFinalized = isFinalized;
         }
-
     }
 }

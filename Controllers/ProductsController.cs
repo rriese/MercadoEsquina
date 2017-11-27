@@ -1,7 +1,9 @@
 ﻿using MercadoEsquina.Models;
+using MercadoEsquina.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
@@ -21,64 +23,98 @@ namespace MercadoEsquina.Controllers
 
         public ActionResult Index()
         {
-            var product = _context.Products.ToList();
+            var product = new ProductViewModel()
+            {
+                Products = _context.Products.ToList(),
+                HasPermission = User.IsInRole(Util.CanManageRole)
+            };
             return View(product);
         }
 
         public ActionResult New()
         {
-            return View("Form", new Product());
+            if (User.IsInRole(Util.CanManageRole))
+            {
+                var product = new ProductViewModel()
+                {
+                    Product = new Product()
+                };
+
+                return View("Form", product);
+            }
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Save(Product produto)
+        public ActionResult Save(ProductViewModel viewModel)
         {
+            Product product = viewModel.Product;
+
             if (ModelState.IsValid)
             {
-                if (produto.Id == 0)
+                if (product.Id == 0)
                 {
-                    _context.Products.Add(produto);
+                    _context.Products.Add(product);
                 }
                 else
                 {
-                    var produtosInDb = _context.Products.Single(c => c.Id == produto.Id);
+                    var productsInDb = _context.Products.Single(c => c.Id == product.Id);
 
-                    produtosInDb.Description = produto.Description;
-                    produtosInDb.Value = produto.Value;
-                    produtosInDb.Quantity = produto.Quantity;
+                    productsInDb.Description = product.Description;
+                    productsInDb.Value = product.Value;
+                    productsInDb.Quantity = product.Quantity;
                 }
                 _context.SaveChanges();
                 return RedirectToAction("Index");
             }
             else
             {
-                return View("Form", produto);
+                return View("Form", product);
             }
         }
 
         public ActionResult Edit(int id)
         {
-            var product = _context.Products.SingleOrDefault(c => c.Id == id);
-
-            if (product != null)
+            if (User.IsInRole(Util.CanManageRole))
             {
-                return View("Form", product);
+                var product = new ProductViewModel()
+                {
+                    Product = _context.Products.SingleOrDefault(c => c.Id == id)
+                };
+
+                if (product.Product != null)
+                {
+                    return View("Form", product);
+                }
+                else {
+                    return HttpNotFound();
+                }
             }
-            else {
-                return HttpNotFound();
+            else
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
         }
 
         public ActionResult Remove(int id)
         {
-            var product = _context.Products.Single(m => m.Id == id);
+            if (User.IsInRole(Util.CanManageRole))
+            {
+                var product = _context.Products.Single(m => m.Id == id);
 
-            if (product != null) _context.Products.Remove(product);
+                if (product != null) _context.Products.Remove(product);
 
-            _context.SaveChanges();
+                _context.SaveChanges();
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            else {
+                return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
+            }
         }
     }
 }

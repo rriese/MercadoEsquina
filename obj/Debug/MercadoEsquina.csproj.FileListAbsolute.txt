@@ -115,3 +115,27 @@ C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEs
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Teste.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddUsers.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.TesteUser.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.InitialModel.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.InsertIntoCliente.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateAttributes.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateDateTime.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedEmployee.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateEmployee.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddPhoneNumberToClient.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedProductModel.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedOrderModel.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedOrderItemModel.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Teste.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddUsers.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.TesteUser.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateOrderModel.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateOrderModel1.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateOrder.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.csproj.GenerateResource.Cache
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\ApplicationInsights.config
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\MercadoEsquina.dll.config
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\MercadoEsquina.dll
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\MercadoEsquina.pdb
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.dll
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.pdb
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateOrder1.resources

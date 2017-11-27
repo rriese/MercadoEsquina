@@ -1,9 +1,4 @@
-﻿
-@{
-    ViewBag.Title = "Pedido";
-}
-
-@model IEnumerable<MercadoEsquina.Models.Order>
+﻿@model IEnumerable<MercadoEsquina.Models.Order>
 @{
     ViewData["Title"] = "Listagem de Pedidos";
 }
@@ -22,16 +17,15 @@ using (Html.BeginForm())
 {
     <center>
         @Html.ActionLink("Novo Pedido", "New", null, new { @class = "btn btn-primary" })
-        <h2>Pedidos Realizados</h2>
+        <h2>Pedidos em Andamento</h2>
     </center>
     <table class="table table-bordered table-hover">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Id</th>
-                <th>Data da Venda</th>
-                <th>Cliente</th>
-                <th>Funcionário</th>
+                <th style="text-align:center">#</th>
+                <th style="text-align:center">Id</th>
+                <th style="text-align:center">Data da Venda</th>
+                <th style="text-align:center">Cliente</th>
                 <th style="text-align: center">#</th>
             </tr>
         </thead>
@@ -44,9 +38,9 @@ using (Html.BeginForm())
                     <td>@pedidos.Id</td>
                     <td>@String.Format("{0: dd/MM/yyyy }", pedidos.OrderDate)</td>
                     <td>@pedidos.Client.Name</td>
-                    <td>@pedidos.Employee.Name</td>
                                         
                     <td style="text-align:center">
+                        @Html.ActionLink("ADICIONAR ITENS", "../ItemOrders/Add", new { pedidos.Id }, new { @class = "btn btn-primary" })
                         @Html.ActionLink("LISTAR ITENS", "Items", new { pedidos.Id }, new { @class = "btn btn-primary" })
                     </td>
                 </tr>

@@ -1,4 +1,4 @@
-﻿@model MercadoEsquina.Models.Product
+﻿@model MercadoEsquina.ViewModels.ProductViewModel
 @{
     ViewBag.Title = "Formulário Produto";
 }
@@ -6,31 +6,24 @@
 @using (Html.BeginForm("Save", "Products"))
 {
     @Html.AntiForgeryToken()
-    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Product.Id)
 
-    if (Model.Id == 0)
-    {
-        <center><h2>Cadastro de Produto</h2></center>
-    }
-    else
-    {
-        <center><h2>Edição de Produto</h2></center>
-    }
+    <center><h2>@Model.Title</h2></center>
 
     <div class="form-group">
-        @Html.LabelFor(m => m.Description)
-        @Html.TextBoxFor(m => m.Description, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Description)
+        @Html.LabelFor(m => m.Product.Description)
+        @Html.TextBoxFor(m => m.Product.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product.Description)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Value)
-        @Html.TextBoxFor(m => m.Value, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Value)
+        @Html.LabelFor(m => m.Product.Value)
+        @Html.TextBoxFor(m => m.Product.Value, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product.Value)
     </div>
     <div class="form-group">
-        @Html.LabelFor(m => m.Quantity)
-        @Html.TextBoxFor(m => m.Quantity, new { @class = "form-control" })
-        @Html.ValidationMessageFor(m => m.Quantity)
+        @Html.LabelFor(m => m.Product.Quantity)
+        @Html.TextBoxFor(m => m.Product.Quantity, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Product.Quantity)
     </div>
     <div class="btnSubmit">
         <button type="submit" class="btn btn-primary">Salvar</button>
