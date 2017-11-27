@@ -1,0 +1,53 @@
+﻿@model MercadoEsquina.ViewModels.SupplierViewModel
+@{
+    ViewData["Title"] = "Listagem de Fornecedores";
+}
+
+@if (!Model.Suppliers.Any())
+{
+    <center>
+        <h1>Não temos nenhum fornecedor ainda.</h1>
+        @Html.ActionLink("Novo Fornecedor", "New", null, new { @class = "btn btn-primary" })
+    </center>
+}
+else
+{
+
+using (Html.BeginForm())
+{
+    <center>
+        @Html.ActionLink("Novo Pedido", "New", null, new { @class = "btn btn-primary" })
+        <h2>Fornecedores Cadastrados</h2>
+    </center>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th style="text-align:center">#</th>
+                <th style="text-align:center">Id</th>
+                <th style="text-align:center">Nome</th>
+                <th style="text-align:center">Cnpj</th>
+                <th style="text-align:center">Endereço</th>
+                <th style="text-align: center">#</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ int cont = 0; }
+            @foreach (var fornecedores in Model.Suppliers)
+            {
+                <tr>
+                    <th scope="row">@(++cont)</th>
+                    <td>@fornecedores.Id</td>
+                    <td>@fornecedores.Name</td>
+                    <td>@fornecedores.Cnpj</td>
+                    <td>@fornecedores.Address</td>
+                                        
+                    <td style="text-align:center">
+                        <button type="button" data-customer-id="@fornecedores.Id" class="btn btn-primary" id="remove">Remover</button>
+                        @Html.ActionLink("EDITAR", "Edit", new { fornecedores.Id }, new { @class = "btn btn-primary" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+                }
+}

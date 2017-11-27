@@ -1,17 +1,16 @@
-﻿
-@{
-    ViewBag.Title = "Product";
-}
-@model IEnumerable<MercadoEsquina.Models.Product>
+﻿@model MercadoEsquina.ViewModels.ProductViewModel
 @{
     ViewData["Title"] = "Listagem de Produtos";
 }
 
-@if (!Model.Any())
+@if (!Model.Products.Any())
 {
     <center>
+        @if (Model.HasPermission)
+        {
+            @Html.ActionLink("Novo Produto", "New", null, new { @class = "btn btn-primary" })
+        }
         <h1>Não temos nenhum produto ainda.</h1>
-        @Html.ActionLink("Novo Produto", "New", null, new { @class = "btn btn-primary" })
     </center>
 }
 else
@@ -20,23 +19,29 @@ else
 using (Html.BeginForm())
 {
     <center>
-        @Html.ActionLink("Novo Produto", "New", null, new { @class = "btn btn-primary" })
+        @if (Model.HasPermission)
+        {
+            @Html.ActionLink("Novo Produto", "New", null, new { @class = "btn btn-primary" })
+        }
         <h2>Produtos Cadastrados</h2>
     </center>
-    <table class="table table-bordered table-hover">
+    <table class="table table-bordered table-hover" id="products">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Id</th>
-                <th>Descrição</th>
-                <th>Valor</th>
-                <th>Quantidade</th>
                 <th style="text-align: center">#</th>
+                <th style="text-align: center">Id</th>
+                <th style="text-align: center">Descrição</th>
+                <th style="text-align: center">Valor</th>
+                <th style="text-align: center">Quantidade</th>
+                @if (Model.HasPermission)
+                {
+                    <th style="text-align: center">#</th>
+                }
             </tr>
         </thead>
         <tbody>
             @{ int cont = 0; }
-            @foreach (var products in Model)
+            @foreach (var products in Model.Products)
             {
                 <tr>
                     <th scope="row">@(++cont)</th>
@@ -45,13 +50,38 @@ using (Html.BeginForm())
                     <td>@products.Value</td>
                     <td>@products.Quantity</td>
 
-                    <td style="text-align:center">
-                        @Html.ActionLink("EDITAR", "Edit", new { products.Id }, new { @class = "btn btn-primary" })
-                        @Html.ActionLink("REMOVER", "Remove", new { products.Id }, new { @class = "btn btn-primary" })
-                    </td>
+                    @if (Model.HasPermission)
+                    {
+                        <td style="text-align:center">
+                            <button type="button" data-employee-id="@products.Id" class="btn btn-primary" id="remove">Remover</button>
+                            @Html.ActionLink("EDITAR", "Edit", new { products.Id }, new { @class = "btn btn-primary" })
+                        </td>
+                    }
                 </tr>
             }
         </tbody>
     </table>
                 }
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#products").on("click", "#remove",
+                function () {
+                    var button = $(this);
+                    bootbox.confirm("Tem certeza que quer remover este produto?",
+                        function (result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/Products/Remove/" + button.attr("data-employee-id"),
+                                    method: "GET",
+                                    success: function () {
+                                        button.parents("tr").remove();
+                                    }
+                                });
+                            }
+                        });
+                });
+        });
+    </script>
 }
+                }

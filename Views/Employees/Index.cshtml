@@ -1,45 +1,49 @@
-﻿
-@{
-    ViewBag.Title = "Employee";
-}
-@model IEnumerable<MercadoEsquina.Models.Employee>
+﻿@model MercadoEsquina.ViewModels.EmployeeViewModel
 @{
     ViewData["Title"] = "Listagem de Funcionários";
 }
 
-@if (!Model.Any())
+@if (!Model.Employees.Any())
 {
     <center>
+        @if (Model.HasPermission)
+        {
+            @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
+        }
         <h1>Não temos nenhum funcionário ainda.</h1>
-        @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
     </center>
 }
 else
 {
-
     using (Html.BeginForm())
     {
     <center>
-        @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
+        @if (Model.HasPermission)
+        {
+            @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
+        }
         <h2>Funcionários Cadastrados</h2>
     </center>
     <table class="table table-bordered table-hover" id="employees">
         <thead>
             <tr>
-                <th>#</th>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Cpf</th>
-                <th>Data de Nascimento</th>
-                <th>Função</th>
-                <th>Salário</th>
-                <th>Número de Telefone</th>
                 <th style="text-align: center">#</th>
+                <th style="text-align: center">Id</th>
+                <th style="text-align: center">Nome</th>
+                <th style="text-align: center">Cpf</th>
+                <th style="text-align: center">Data de Nascimento</th>
+                <th style="text-align: center">Função</th>
+                <th style="text-align: center">Salário</th>
+                <th style="text-align: center">Número de Telefone</th>
+                @if (Model.HasPermission)
+                {
+                    <th style="text-align: center">#</th>
+                }
             </tr>
         </thead>
         <tbody>
             @{ int cont = 0; }
-            @foreach (var employees in Model)
+            @foreach (var employees in Model.Employees)
             {
                 <tr>
                     <th scope="row">@(++cont)</th>
@@ -51,10 +55,13 @@ else
                     <td>@employees.Salary</td>
                     <td>@employees.PhoneNumber</td>
 
-                    <td style="text-align:center">
-                        @Html.ActionLink("EDITAR", "Edit", new { employees.Id }, new { @class = "btn btn-primary" })
-                        <button type="button" data-employee-id="@employees.Id" class="btn btn-primary" id="remove">Remover</button>
-                    </td>
+                    @if (Model.HasPermission)
+                    {
+                        <td style="text-align:center">
+                            <button type="button" data-employee-id="@employees.Id" class="btn btn-primary" id="remove">Remover</button>
+                            @Html.ActionLink("EDITAR", "Edit", new { employees.Id }, new { @class = "btn btn-primary" })
+                        </td>
+                    }
                 </tr>
             }
         </tbody>

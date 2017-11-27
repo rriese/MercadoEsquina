@@ -1,0 +1,37 @@
+﻿@model MercadoEsquina.ViewModels.SupplierViewModel
+@{
+    ViewBag.Title = "Formulário Fornecedor";
+}
+
+@using (Html.BeginForm("Save", "Suppliers"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Supplier.Id)
+
+    <center><h2>Fornecedor</h2></center>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Supplier.Name)
+        @Html.TextBoxFor(m => m.Supplier.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Supplier.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Supplier.Cnpj)
+        @Html.TextBoxFor(m => m.Supplier.Cnpj, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Supplier.Cnpj)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Supplier.Address)
+        @Html.TextBoxFor(m => m.Supplier.Address, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Supplier.Address)
+    </div>
+
+    <br>
+    <div class="btnSubmit">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </div>
+}
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
