@@ -11,5 +11,18 @@ namespace MercadoEsquina.ViewModels
         public IEnumerable<Supplier> Suppliers { get; set; }
         public Supplier Supplier { get; set; }
         public bool HasPermission { get; set; }
+        public string Title
+        {
+            get
+            {
+                if (Supplier != null && Supplier.Id != 0)
+                {
+                    return "Edição de Fornecedor";
+                } else
+                {
+                    return "Cadastro de Fornecedor";
+                }
+            }
+        }
     }
 }

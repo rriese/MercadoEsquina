@@ -8,7 +8,7 @@
     <center>
         @if (Model.HasPermission)
         {
-            @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-success" })
         }
         <h1>Não temos nenhum funcionário ainda.</h1>
     </center>
@@ -20,11 +20,11 @@ else
     <center>
         @if (Model.HasPermission)
         {
-            @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-primary" })
+            @Html.ActionLink("Novo Funcionário", "New", null, new { @class = "btn btn-success" })
         }
         <h2>Funcionários Cadastrados</h2>
     </center>
-    <table class="table table-bordered table-hover" id="employees">
+    <table class="table table-striped table-bordered" id="employees">
         <thead>
             <tr>
                 <th style="text-align: center">#</th>
@@ -58,8 +58,8 @@ else
                     @if (Model.HasPermission)
                     {
                         <td style="text-align:center">
-                            <button type="button" data-employee-id="@employees.Id" class="btn btn-primary" id="remove">Remover</button>
-                            @Html.ActionLink("EDITAR", "Edit", new { employees.Id }, new { @class = "btn btn-primary" })
+                            <button type="button" data-employee-id="@employees.Id" class="btn btn-danger" id="remove">Remover</button>
+                            @Html.ActionLink("EDITAR", "Edit", new { employees.Id }, new { @class = "btn btn-warning" })
                         </td>
                     }
                 </tr>

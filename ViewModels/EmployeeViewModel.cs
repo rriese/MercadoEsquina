@@ -16,9 +16,9 @@ namespace MercadoEsquina.ViewModels
             get
             {
                 if (Employee != null && Employee.Id != 0)
-                    return "Cadastro de Funcionário";
+                    return "Edição de Funcionário";
 
-                return "Edição de Funcionário";
+                return "Cadastro de Funcionário";
             }
         }
     }

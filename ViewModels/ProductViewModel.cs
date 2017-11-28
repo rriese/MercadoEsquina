@@ -6,6 +6,7 @@ namespace MercadoEsquina.ViewModels
     public class ProductViewModel
     {
         public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<Supplier> Suppliers { get; set; }
 
         public Product Product { get; set; }
 

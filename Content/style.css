@@ -30,3 +30,7 @@
 tr, td {
     text-align: center;
 }
+
+.table-striped {
+   background-color: #d3eadc;
+ }

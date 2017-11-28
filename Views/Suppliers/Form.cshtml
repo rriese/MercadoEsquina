@@ -8,7 +8,7 @@
     @Html.AntiForgeryToken()
     @Html.HiddenFor(m => m.Supplier.Id)
 
-    <center><h2>Fornecedor</h2></center>
+    <center><h2>@Model.Title</h2></center>
 
     <div class="form-group">
         @Html.LabelFor(m => m.Supplier.Name)
@@ -28,7 +28,7 @@
 
     <br>
     <div class="btnSubmit">
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <button type="submit" class="btn btn-success">Salvar</button>
     </div>
 }
 @section scripts

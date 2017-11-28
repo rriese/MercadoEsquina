@@ -1,11 +1,9 @@
 ﻿using MercadoEsquina.Models;
 using MercadoEsquina.ViewModels;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace MercadoEsquina.Controllers
 {
@@ -28,6 +26,11 @@ namespace MercadoEsquina.Controllers
                 Products = _context.Products.ToList(),
                 HasPermission = User.IsInRole(Util.CanManageRole)
             };
+
+            foreach (var produto in product.Products)
+            {
+                produto.Supplier = _context.Suppliers.Single(c => c.Id == produto.SupplierId);
+            }
             return View(product);
         }
 
@@ -37,7 +40,8 @@ namespace MercadoEsquina.Controllers
             {
                 var product = new ProductViewModel()
                 {
-                    Product = new Product()
+                    Product = new Product(),
+                    Suppliers = _context.Suppliers.ToList()
                 };
 
                 return View("Form", product);
@@ -67,6 +71,7 @@ namespace MercadoEsquina.Controllers
                     productsInDb.Description = product.Description;
                     productsInDb.Value = product.Value;
                     productsInDb.Quantity = product.Quantity;
+                    productsInDb.Supplier = product.Supplier;
                 }
                 _context.SaveChanges();
                 return RedirectToAction("Index");
