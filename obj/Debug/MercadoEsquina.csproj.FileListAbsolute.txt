@@ -148,3 +148,39 @@ C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEs
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedSupplierToProductModel.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Update.resources
 C:\Users\rafael.riese.CATOLICASC\Documents\Visual Studio 2015\Projects\MercadoEsquina\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Update2.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.AI.Web.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.ApplicationInsights.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\System.Web.Helpers.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\System.Web.Mvc.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\System.Web.Optimization.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\System.Web.Razor.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\System.Web.WebPages.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\System.Web.WebPages.Deployment.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\System.Web.WebPages.Razor.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Antlr3.Runtime.pdb
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Newtonsoft.Json.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\EntityFramework.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\EntityFramework.SqlServer.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Security.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Security.Facebook.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Security.OAuth.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Security.Google.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Security.Twitter.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.csprojResolveAssemblyReference.cache
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateModelAndAddSupplier.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AlterAtribute.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.AddedSupplierToProductModel.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Update.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.Update2.resources
+C:\Users\RIESE'S\Documents\GitHub\MercadoEsquina\obj\Debug\MercadoEsquina.Migrations.UpdateForeignKeySupplier.resources

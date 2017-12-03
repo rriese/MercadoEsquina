@@ -21,7 +21,7 @@ namespace MercadoEsquina.Models
         public int Quantity { get; set; }
         public Supplier Supplier { get; set; }
         [Display(Name = "Fornecedor")]
-        public byte SupplierId { get; set; }
+        public int SupplierId { get; set; }
 
         public Product() { }
 

@@ -295,6 +295,10 @@
     <Compile Include="Migrations\201711282317076_Update2.Designer.cs">
       <DependentUpon>201711282317076_Update2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712031858410_UpdateForeignKeySupplier.cs" />
+    <Compile Include="Migrations\201712031858410_UpdateForeignKeySupplier.Designer.cs">
+      <DependentUpon>201712031858410_UpdateForeignKeySupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Client.cs" />
@@ -479,6 +483,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711282317076_Update2.resx">
       <DependentUpon>201711282317076_Update2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712031858410_UpdateForeignKeySupplier.resx">
+      <DependentUpon>201712031858410_UpdateForeignKeySupplier.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

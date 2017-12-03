@@ -23,14 +23,14 @@ namespace MercadoEsquina.Controllers
         {
             var product = new ProductViewModel()
             {
-                Products = _context.Products.ToList(),
+                Products = _context.Products.Include("Supplier").ToList(),
                 HasPermission = User.IsInRole(Util.CanManageRole)
             };
 
-            foreach (var produto in product.Products)
+            /*foreach (var produto in product.Products)
             {
                 produto.Supplier = _context.Suppliers.Single(c => c.Id == produto.SupplierId);
-            }
+            }*/
             return View(product);
         }
 
